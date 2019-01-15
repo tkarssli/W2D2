@@ -1,4 +1,5 @@
 Dir["pieces/*.rb"].each {|file| require_relative file }
+require "byebug"
 
 class Board
     attr_accessor :grid 
@@ -41,6 +42,33 @@ class Board
             else   
                 Array.new(8){|el| el = NullPiece.instance}
             end
+        end
+
+        def [](pos)
+            rows, cols = pos 
+            grid[rows][cols] 
+        end
+
+        def []=(pos, val)
+            rows, cols = pos 
+            grid[rows][cols] = val
+        end
+
+        def move_piece(color, start_pos, end_pos)
+            debugger
+            raise "No piece at position" if self[start_pos] == NullPiece.instance
+            raise "No friendly fire!" if self[end_pos].color == color
+            self[end_pos] = self[start_pos]
+            self[start_pos] = NullPiece.instance
+
+
+        end
+
+        def valid_pos?(pos)
+            row, col = pos 
+            return false if row > 7 || row < 0
+            return false if col > 7 || col < 0
+            true
         end
 
     end
