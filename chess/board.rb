@@ -1,10 +1,12 @@
 Dir["pieces/*.rb"].each {|file| require_relative file }
 require "byebug"
+require_relative "display.rb"
 
 class Board
-    attr_accessor :grid 
+    attr_accessor :grid, :display 
     def initialize
         @grid = Array.new(8){|el| el = Array.new(8)}
+        @display = Display.new(self) 
         set_up_board 
     end
 
@@ -55,7 +57,6 @@ class Board
         end
 
         def move_piece(color, start_pos, end_pos)
-            debugger
             raise "No piece at position" if self[start_pos] == NullPiece.instance
             raise "No friendly fire!" if self[end_pos].color == color
             self[end_pos] = self[start_pos]
