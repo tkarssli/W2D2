@@ -18,13 +18,13 @@ class Board
             King.new(:black,self, "\u265A", [0, 3]),
             Queen.new(:black,self, "\u265B", [0, 4]),
             Bishop.new(:black,self, "\u265D", [0, 5]),
-            Knight.nnnew(:black,self, "\u265E", [0, 6]),
-             Rook.nnnew(:black,self, "\u265C", [0, 7])
-        ]nn
-        white_piecenns = [
-            Rook.nennw(:white,self, "\u2656", [7, 0]),
-            Knight.nnnew(:white,self, "\u2658", [7, 1]),
-            Bishop.nnnew(:white,self, "\u2657", [7, 2]),
+            Knight.new(:black,self, "\u265E", [0, 6]),
+             Rook.new(:black,self, "\u265C", [0, 7])
+        ]
+        white_pieces = [
+            Rook.new(:white,self, "\u2656", [7, 0]),
+            Knight.new(:white,self, "\u2658", [7, 1]),
+            Bishop.new(:white,self, "\u2657", [7, 2]),
             Queen.new(:white,self, "\u2655", [7, 3]),
              King.new(:white,self, "\u2654", [7, 4]),
             Bishop.new(:white,self, "\u2657", [7, 5]),
