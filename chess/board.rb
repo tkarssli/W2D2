@@ -12,24 +12,24 @@ class Board
 
     def set_up_board
         black_pieces = [
-            Rook.new(:black, "R_b"),
-            Knight.new(:black, "N_b"),
-            Bishop.new(:black, "B_b"),
-            King.new(:black, "K_b"),
-            Queen.new(:black, "Q_b"),
-            Bishop.new(:black, "B_b"),
-            Knight.new(:black, "N_b"),
-             Rook.new(:black, "R_b")
+            Rook.new(:black,self, "\u265C", [0, 0]),
+            Knight.new(:black,self, "\u265E", [0, 1]),
+            Bishop.new(:black,self, "\u265D", [0, 2]),
+            King.new(:black,self, "\u265A", [0, 3]),
+            Queen.new(:black,self, "\u265B", [0, 4]),
+            Bishop.new(:black,self, "\u265D", [0, 5]),
+            Knight.new(:black,self, "\u265E", [0, 6]),
+             Rook.new(:black,self, "\u265C", [0, 7])
         ]
         white_pieces = [
-            Rook.new(:white, "R_w"),
-            Knight.new(:white, "N_w"),
-            Bishop.new(:white, "B_w"),
-            Queen.new(:white, "Q_w"),
-             King.new(:white, "K_w"),
-            Bishop.new(:white, "B_w"),
-            Knight.new(:white, "N_w"),
-             Rook.new(:white, "R_w")
+            Rook.new(:white,self, "\u2656", [7, 0]),
+            Knight.new(:white,self, "\u2658", [7, 1]),
+            Bishop.new(:white,self, "\u2657", [7, 2]),
+            Queen.new(:white,self, "\u2655", [7, 3]),
+             King.new(:white,self, "\u2654", [7, 4]),
+            Bishop.new(:white,self, "\u2657", [7, 5]),
+            Knight.new(:white,self, "\u2658", [7, 6]),
+             Rook.new(:white,self, "\u2656", [7, 7])
         ]
         grid.map!.with_index do |row, row_num|
             case row_num
