@@ -1,5 +1,6 @@
 require "colorize"
 require_relative "cursor.rb"
+require "byebug"
 
 
 class Display
@@ -22,9 +23,17 @@ class Display
         board.grid.each.with_index do |row, i|
             row.each_with_index  do |el, j|
                 if cp == [i,j]
-                    print " #{el.name} ".colorize(:background => :light_red)
+                    if cursor.selected
+                        print " #{el.name} ".colorize(:background => :light_green)
+                    else
+                        print " #{el.name} ".colorize(:background => :light_red)
+                    end
                 else
-                print " #{el.name} "
+                    if (i+j).even?
+                        print " #{el.name} ".on_white
+                    else
+                        print " #{el.name} ".on_red
+                    end
                 end
             end
         puts
